@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfApp_HWK_5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_HWK_5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Icon="Gradeimages.png">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid Background="#FFB4C2F1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="372*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="330" Margin="0,68,0,0" VerticalAlignment="Top" Width="226" SelectionChanged="listBox_SelectionChanged" DataContext="{Binding Submission}" Background="#FFE0CBD6" Grid.ColumnSpan="3" Grid.Column="1">
+            <ListBox.ItemBindingGroup>
+                <BindingGroup/>
+            </ListBox.ItemBindingGroup>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <ContextMenu.BindingGroup>
+                        <BindingGroup/>
+                    </ContextMenu.BindingGroup>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.BindingGroup>
+                <BindingGroup/>
+            </ListBox.BindingGroup>
+        </ListBox>
+        <Label x:Name="label" Content="Submissions" HorizontalAlignment="Right" Margin="0,39,107,0" VerticalAlignment="Top" Height="24" Width="158" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label x:Name="label_Copy" Content="Assignment Name" HorizontalAlignment="Left" Margin="78,204,0,0" VerticalAlignment="Top" Height="31" Width="126" Grid.Column="6" Background="#FFFFE2B0" FontFamily="Perpetua Titling MT"/>
+        <Label x:Name="label_Copy1" Content="Category" HorizontalAlignment="Left" Margin="78,235,0,0" VerticalAlignment="Top" Height="32" Width="126" RenderTransformOrigin="4.038,0.205" Grid.Column="6" Background="#FFF1D6A5" FontFamily="Perpetua Titling MT"/>
+        <Label x:Name="label_Copy2" Content="Grade" HorizontalAlignment="Left" Margin="78,267,0,0" VerticalAlignment="Top" Height="30" Width="126" Grid.Column="6" FontFamily="Perpetua Titling MT" Background="#FFF3DFBB"/>
+        <TextBox x:Name="assignmentTB" Height="26" Margin="226,204,20,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Selected Assignment Name" BindingGroup="{Binding AssignmentName}" DataContext="{Binding AssignmentName}" Grid.Column="6" Background="#FFE5EEDE">
+            <TextBox.ContextMenu>
+                <ContextMenu>
+                    <ContextMenu.ContextMenu>
+                        <ContextMenu>
+                            <ContextMenu.ContextMenu>
+                                <ContextMenu>
+                                    <ContextMenu.BindingGroup>
+                                        <BindingGroup/>
+                                    </ContextMenu.BindingGroup>
+                                </ContextMenu>
+                            </ContextMenu.ContextMenu>
+                        </ContextMenu>
+                    </ContextMenu.ContextMenu>
+                </ContextMenu>
+            </TextBox.ContextMenu>
+        </TextBox>
+        <TextBox x:Name="categoryTB" Height="23" Margin="226,235,20,0" TextWrapping="Wrap"  VerticalAlignment="Top" ToolTip="Selected Category " DataContext="{Binding CategoryName}" Grid.Column="6" Background="#FFE4E8E1"/>
+        <TextBox x:Name="gradeTB" Height="26" Margin="226,271,20,0" TextWrapping="Wrap" ToolTip="Grade for selected Assignment" VerticalAlignment="Top" DataContext="{Binding Grade}" Grid.Column="6" Background="#FFDFE2DC"/>
+        <Menu x:Name="menu" VerticalAlignment="Top" Grid.ColumnSpan="7" Background="#FF9494F9">
+            <MenuItem x:Name="file" Header="File" Background="#FFC6CDEE">
+                <MenuItem x:Name="exit" Header="Exit" Click="closeMe"/>
+                <Separator/>
+            </MenuItem>
+            <Menu x:Name="importMenu" Height="24" Width="45">
+                <MenuItem x:Name="import" Header="Import" Height="24" Width="44" Background="#FF95A5EE">
+                    <MenuItem x:Name="JSONMenuSelector" Header="ImportJSONCourseWork" Click="selectJSONFile"/>
+                    <Separator/>
+                </MenuItem>
+                <Separator Width="0"/>
+            </Menu>
+            <MenuItem x:Name="help" Header="Help" Width="48" Height="39">
+                <Separator/>
+                <MenuItem x:Name="about" Header="About" Click="showDetail"/>
+                <Separator/>
+            </MenuItem>
+        </Menu>
+        <Menu x:Name="helpMenu" Margin="13,33,0,0" VerticalAlignment="Top" Grid.ColumnSpan="5" Grid.Column="2"/>
+        <Image x:Name="image" Grid.Column="6" HorizontalAlignment="Left" Height="86" Margin="132,312,0,0" VerticalAlignment="Top" Width="172" Source="Gradeimages.png"/>
+        <Image x:Name="image1" Grid.Column="6" HorizontalAlignment="Right" Height="100" Margin="0,68,34,0" VerticalAlignment="Top" Width="260" Source="C#download.png"/>
+
+    </Grid>
+</Window>
